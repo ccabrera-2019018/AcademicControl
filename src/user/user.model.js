@@ -34,7 +34,7 @@ const userSchema = mongoose.Schema({
     },
     course: {
         type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'course'}],
-        required: true
+        required: false
     }
 }, {
         versionKey: false

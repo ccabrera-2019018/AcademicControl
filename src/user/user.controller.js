@@ -123,7 +123,7 @@ export const deleteU = async (req, res) => {
 export const showMyCourse = async (req, res) => {
     try {
         // Recuperar el token de los headers
-        const token = req.headers.authorization;
+        let token = req.headers.authorization
 
         // Validar y extraer el rol y el id del usuario desde el token
         const { role, uid } = jwt.verify(token, process.env.SECRET_KEY);
@@ -188,6 +188,10 @@ export const asignCourse = async (req, res) => {
         if (!course) {
             return res.status(400).json({ message: 'Course ID required.' });
         }
+        if(user.course >= 3) {
+            user.course
+            return res.status(400).send({message: 'Maximun number of courses reached'})
+        }
         const user = await User.findById(id);
         if (!user) {
             return res.status(404).json({ message: 'Student not found' });
@@ -198,5 +202,27 @@ export const asignCourse = async (req, res) => {
     } catch (err) {
         console.error(err)
         return res.status(500).send({ message: 'Error to asign the course' })
+    }
+}
+
+export const designStudent = async(req, res) => {
+    // Encontrar los cursos del profesor
+    let coursesToDelete = await Course.find({ teacher: uid });
+ 
+    // Verificar si se encontraron cursos para eliminar
+    if (coursesToDelete.length === 0) return res.status(404).send({ message: `No courses found for teacher ${uid}.` });
+
+    // Desvincular a los alumnos de los cursos del profesor
+    await Promise.all(coursesToDelete.map(async (course) => {
+        await User.updateMany({ courses: course._id }, { $pull: { courses: course._id } });
+    }));
+
+    // Eliminar los cursos del profesor
+    let deletedCourses = await Course.deleteMany({ teacher: uid });
+
+    // Eliminar al profesor
+    let deletedTeacher = await User.findOneAndDelete({ _id: uid });
+    if (!deletedTeacher) {
+        return res.status(404).send({ message: `Teacher not found.` });
     }
 }

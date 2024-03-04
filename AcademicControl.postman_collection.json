@@ -1,0 +1,364 @@
+{
+	"info": {
+		"_postman_id": "e3929f25-e633-4b00-b729-a0d0a45d1e41",
+		"name": "AcademicControl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33016597"
+	},
+	"item": [
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "SaveCourse",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQzNWVlMjA2YzQ3ZDRlNjVjZmRiZWEiLCJ1c2VybmFtZSI6Impub2oiLCJuYW1lIjoiSm9zdWUiLCJyb2xlIjoiVEVBQ0hFUiIsImlhdCI6MTcwODY1NDExNCwiZXhwIjoxNzA4NjY0OTE0fQ.FzQiqRmhGgxgWuKxXI0bZYR4YRX2HxcxH-0pgv7YPlM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Fisica",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2656/save",
+							"host": [
+								"localhost"
+							],
+							"port": "2656",
+							"path": [
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterTeacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pedro Armas\",\r\n    \"username\": \"parmas\",\r\n    \"password\": \"12345\",\r\n    \"email\": \"parmas@gmail.com\",\r\n    \"phone\": \"12345678\",\r\n    \"role\": \"TEACHER\",\r\n    \"course\": [\"65d27121219a26ab0545bb37\", \"65d3902c5d718e95e6b6500d\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2656/register",
+							"host": [
+								"localhost"
+							],
+							"port": "2656",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCourse",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2656/updateC/",
+							"host": [
+								"localhost"
+							],
+							"port": "2656",
+							"path": [
+								"updateC",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCourse",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:2656/deleteC/",
+							"host": [
+								"localhost"
+							],
+							"port": "2656",
+							"path": [
+								"deleteC",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateTeacher",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:2656/update/",
+							"host": [
+								"localhost"
+							],
+							"port": "2656",
+							"path": [
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteStudent",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:2656/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "2656",
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "API's for teacher"
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "SignCourse",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQ3ZWUxZDI0YTI1OTAyNTVlNjQzOTYiLCJ1c2VybmFtZSI6InJpY2hpIiwibmFtZSI6IlJpY2FyZG8gQWRyaWFuIiwicm9sZSI6IlNUVURFTlQiLCJpYXQiOjE3MDg2NTAwNjEsImV4cCI6MTcwODY2MDg2MX0.B4qdSQh_KkOBKFZPUSJIiVh_QIwZcriBnU3-_OXeVuY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "course",
+									"value": "65d3903a5d718e95e6b65010",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2656/asignCourse",
+							"host": [
+								"localhost"
+							],
+							"port": "2656",
+							"path": [
+								"asignCourse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterStudent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ricardo Adrian\",\r\n    \"username\": \"richi\",\r\n    \"password\": \"12345\",\r\n    \"email\": \"rcolindres@gmail.com\",\r\n    \"phone\": \"12345678\",\r\n    \"course\": [\"65d27121219a26ab0545bb37\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2656/registerStudent",
+							"host": [
+								"localhost"
+							],
+							"port": "2656",
+							"path": [
+								"registerStudent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateStudent",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:2656/update",
+							"host": [
+								"localhost"
+							],
+							"port": "2656",
+							"path": [
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteStudent",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:2656/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "2656",
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "API's for student"
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "richi",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2656/login",
+					"host": [
+						"localhost"
+					],
+					"port": "2656",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShowMyCourse",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQyODM4Njg0YjlhOWY0YmYyNDIxMmMiLCJ1c2VybmFtZSI6InJpY2hpIiwibmFtZSI6IlJpY2FyZG8gQWRyaWFuIiwicm9sZSI6IlNUVURFTlQiLCJpYXQiOjE3MDgzNjIyMzIsImV4cCI6MTcwODM3MzAzMn0.wI9o2d5Ntkn9JO6TnnRQEzrcvP2peJa1v0euQuXYINA",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:2656/showMyCourse",
+					"host": [
+						"localhost"
+					],
+					"port": "2656",
+					"path": [
+						"showMyCourse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prueba",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQzNWVlMjA2YzQ3ZDRlNjVjZmRiZWEiLCJ1c2VybmFtZSI6Impub2oiLCJuYW1lIjoiSm9zdWUiLCJyb2xlIjoiVEVBQ0hFUiIsImlhdCI6MTcwODY2MTg1NCwiZXhwIjoxNzA4NjcyNjU0fQ.HWzdA-RJwC2YDjSiVm0V-zbYIZBxWSA81orEvbfkzcg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:2656/designStudent",
+					"host": [
+						"localhost"
+					],
+					"port": "2656",
+					"path": [
+						"designStudent"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
